@@ -1,0 +1,26 @@
+/* Define o body como um contêiner flex */
+body {
+    margin: 0;
+    height: 100vh; /* Altura total da janela */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+td {
+    border-bottom: 1px solid black;
+    padding: 5px 10px;
+}
+table {
+    border: 1px solid red;
+    padding: 10px;
+    border-radius: 20px;
+}
+/* tr:nth-of-type(1),
+td:nth-of-type(1),
+t */

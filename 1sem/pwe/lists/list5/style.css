@@ -1,0 +1,64 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+header,
+main,
+footer {
+  margin-bottom: 20px;
+}
+
+.page-row {
+  width: 90%;
+  max-width: 1200px;
+  text-align: left;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+img {
+  margin-top: 20px;
+  max-width: 320px;
+  height: auto;
+  border-radius: 15%;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.blue {
+  color: blue;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.purple {
+  color: purple;
+}
+
+footer {
+  background-color: #f4f4f4;
+  padding: 10px;
+  justify-content: end;
+}
+
+/* Comentario */

@@ -1,0 +1,33 @@
+h1, h2 {
+  background-color: yellow;
+  color: red;
+  margin: 12px;
+  padding: 10px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.configuracao {
+  background-color: yellow;
+  color: red;
+  margin: 15px;
+  padding: 10px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.caixa {
+  border: 5px dashed blue;
+  padding: 20px;
+  margin: 30px;
+  color: red;
+  font-size: 1.5em;
+  text-align: center;
+  width: calc(100% - 50px);
+  box-sizing: border-box; 
+}
+
+.voltar {
+    /* display: inline-block; */
+    margin: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }

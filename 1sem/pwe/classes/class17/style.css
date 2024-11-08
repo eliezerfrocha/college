@@ -1,0 +1,48 @@
+/* Reset golobal */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 20px;
+}
+
+/* Mobile config */
+.container {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.container > div {
+  border: 2px solid red;
+  width: 100%;
+  background-color: pink;
+  padding: 10px;
+}
+
+.row {
+  border: 2px solid green;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+/* Desktop config */
+@media screen and (min-width: 1024px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .container > div {
+    background-color: yellow;
+  }
+
+  .row {
+    border: 2px solid green;
+    flex-direction: row;
+  }
+}

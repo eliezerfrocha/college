@@ -1,0 +1,27 @@
+/* https://github.com/wilton-filho/PWE-GitHub/tree/main/Codigos_aulas/2024.01/2024.08.30 */
+
+/* Configuração global */
+* {
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* Celular */
+.container {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+}
+/* Caixa organizadora */
+.introducao > div > div {
+    border: 2px solid blue;
+    width: 100%;
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+    .container {
+        flex-direction: row;
+    }
+}

@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f8f8f8;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+nav ul li a.basket {
+    background-color: #6c8e46;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.intro {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.intro h2 {
+    font-size: 2em;
+    margin: 0;
+}
+
+.intro button {
+    background-color: #6c8e46;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.images {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.images img {
+    max-width: 24%;
+    border-radius: 10px;
+}
+
+.beliefs {
+    padding: 20px;
+    background-color: #f8f8f8;
+}
+
+.beliefs h3 {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.beliefs p {
+    text-align: center;
+    margin: 10px 0;
+}

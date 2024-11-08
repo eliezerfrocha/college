@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: black;
+  text-align: center;
+  padding: auto;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.opcaoMenu {
+  border: 1px solid _black;
+  width: 100px;
+  height: 35px;
+  background-color: black;
+  color: white;
+  background-repeat: no-repeat;
+  background-position: center 5px;
+  text-align: center;
+  padding-top: 50px;
+  font-family: "Oswald", sans-serif;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.opcaoMenuFace {
+  background-image: url("../imagens/faceBlack.png");
+}
+
+.opcaoMenuFace:hover {
+  color: rgb(66 103 178);
+  background-image: url("../imagens/face.png");
+  border-bottom: 3px solid rgb(66 103 178);
+}
+
+.opcaoMenuFaceLink:hover {
+  color: rgb(66 103 178);
+}
+
+.opcaoMenuInsta {
+  background-image: url("../imagens/instaBlack.png");
+}
+
+.opcaoMenuInsta:hover {
+  color: orange;
+  background-image: url("../imagens/insta.png");
+  border-bottom: 3px solid orange;
+}
+
+.opcaoMenuInstaLink:hover {
+  color: orange;
+}
+
+.opcaoMenuYoutube {
+  background-image: url("../imagens/youtubeBlack.png");
+}
+
+.opcaoMenuYoutube:hover {
+  color: red;
+  background-image: url("../imagens/youtube.png");
+  border-bottom: 3px solid red;
+}
+
+.opcaoMenuYoutubeLink:hover {
+  color: red;
+}
+
+.opcaoMenuMaps {
+  background-image: url("../imagens/mapsBlack.png");
+}
+
+.opcaoMenuMaps:hover {
+  color: rgb(219 247 227);
+  background-image: url("../imagens/maps.png");
+  border-bottom: 3px solid rgb(219 247 227);
+}
+
+.opcaoMenuMapsLink:hover {
+  color: lightgreen;
+}
+
+.opcaoMenuTwitter {
+  background-image: url("../imagens/twitterBlack.png");
+}
+
+.opcaoMenuTwitter:hover {
+  color: lightskyblue;
+  background-image: url("../imagens/twitter.png");
+  border-bottom: 3px solid lightblue;
+}
+
+.opcaoMenuTwitterLink:hover {
+  color: lightskyblue;
+}
+
+h2 {
+  margin: 10px;
+  text-align: start;
+}

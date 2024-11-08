@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
+}
+
+.menu {
+    position: fixed;
+    top: 100px;
+    left: -60px; /* O menu aparece parcialmente */
+    width: 220px; /* Largura total do menu */
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 10px 10px 0; /* Bordas arredondadas à direita */
+    transition: left 0.5s ease; /* Transição suave para o menu */
+}
+
+.menu:hover {
+    left: 0; /* Move o menu para a posição visível ao passar o mouse */
+}
+
+.menu-item {
+    width: 100%; /* Largura total do contêiner */
+    height: 70px; /* Altura dos itens */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Alinhamento do texto à direita */
+    padding-right: 30px; /* Espaço entre o texto e a borda direita */
+    position: relative;
+    color: black;
+    font-weight: bold;
+    border-radius: 0 10px 10px 0; /* Arredondamento apenas nos cantos direito e inferior direito */
+    overflow: hidden; /* Oculta conteúdo que ultrapassa o tamanho do item */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Transição suave para a transformação e cor de fundo */
+    white-space: nowrap; /* Impede que o texto quebre a linha */
+    transform: translateX(-162px); /* Inicialmente oculta o item deslocado */
+}
+
+.menu-item:hover {
+    transform: translateX(0); /* Move o item para a posição visível ao passar o mouse */
+    background-color: rgba(0, 0, 0, 0.1); /* Adiciona um fundo leve ao passar o mouse */
+}
+
+.menu-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px; /* Largura da borda preta */
+    height: 100%;
+    background-color: black;
+    border-radius: 0 10px 10px 0; /* Arredondamento na borda direita */
+}
+
+.menu-item:nth-child(1) {
+    background-color: #add8e6; /* Cor azul claro */
+}
+
+.menu-item:nth-child(2) {
+    background-color: #ffff00; /* Cor amarela */
+}
+
+.menu-item:nth-child(3) {
+    background-color: #f08080; /* Cor coral claro */
+}
+
+.menu-item:nth-child(4) {
+    background-color: #90ee90; /* Cor verde claro */
+}
+
+.menu-item:nth-child(5) {
+    background-color: #ffa07a; /* Cor salmão claro */
+}

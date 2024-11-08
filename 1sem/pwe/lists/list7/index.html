@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Clientes</title>
+  </head>
+  <body>
+    <h1>Cadastro de Clientes</h1>
+    <p style="color: red">Todos os campos são de preenchimento obrigatório</p>
+    <form>
+      <fieldset>
+        <legend>Dados Pessoais</legend>
+        <label for="txtNome">Nome:</label><br>
+        <input type="text" id="txtNome" placeholder="insira nome" required>
+        <br><br>
+        <label for="dtNascimento">Data de Nascimento:</label><br>
+        <input type="date" id="dtNascimento" placeholder="dd/mm/aaaa" required>
+        <br><br>
+        <label>Sexo:</label>
+        <input type="radio" id="rMasculino" name="sexo" value="masculino" checked required>
+        <label for="rMasculino">Masculino</label>
+        <input type="radio" id="rFeminino" name="sexo" value="feminino" required>
+        <label for="rFeminino">Feminino</label><br>
+      </fieldset>
+      <br>
+      <fieldset>
+        <legend>Informações de Contato</legend>
+        <label for="txtEmail">Email:</label><br>
+        <input type="email" id="txtEmail" placeholder="exemplo@email.com" required>
+        <br><br>
+        <label for="txtTelefone">Telefone/Celular:</label><br>
+        <input type="tel" id="txtTelefone" placeholder="(xx) x xxxx-xxxx" maxlength="9" required>
+        <br><br>
+        <label for="txtWebsite">Website Pessoal:</label><br>
+        <input type="url" id="txtWebsite" placeholder="http://" required><br>
+      </fieldset>
+      <br>
+      <fieldset>
+        <legend>Localização</legend>
+        <label for="txtEndereco">Endereço:</label><br>
+        <input type="text" id="txtEndereco" placeholder="av./rua" required>
+        <br><br>
+        <label for="txtNumero">Número:</label><br>
+        <input type="number" id="txtNumero" placeholder="0" min="1" max="9999" required>
+        <br><br>
+        <label for="txtCidade">Cidade:</label><br>
+        <input type="text" id="txtCidade" placeholder="insira cidade" required>
+        <br><br>
+        <label for="ddlEstado">Estado:</label><br>
+        <select id="ddlEstado" a required>
+          <option value="">Selecione</option>
+          <option value="AC">Acre</option>
+          <option value="AL">Alagoas</option>
+          <option value="AP">Amapá</option>
+          <option value="AM">Amazonas</option>
+          <option value="BA">Bahia</option>
+          <option value="CE">Ceará</option>
+          <option value="DF">Distrito Federal</option>
+          <option value="ES">Espírito Santo</option>
+          <option value="GO">Goiás</option>
+          <option value="MA">Maranhão</option>
+          <option value="MT">Mato Grosso</option>
+          <option value="MS">Mato Grosso do Sul</option>
+          <option value="MG">Minas Gerais</option>
+          <option value="PA">Pará</option>
+          <option value="PB">Paraíba</option>
+          <option value="PR">Paraná</option>
+          <option value="PE">Pernambuco</option>
+          <option value="PI">Piauí</option>
+          <option value="RJ">Rio de Janeiro</option>
+          <option value="RN">Rio Grande do Norte</option>
+          <option value="RS">Rio Grande do Sul</option>
+          <option value="RO">Rondônia</option>
+          <option value="RR">Roraima</option>
+          <option value="SC">Santa Catarina</option>
+          <option value="SP">São Paulo</option>
+          <option value="SE">Sergipe</option>
+          <option value="TO">Tocantins</option>
+        </select>
+        <br>
+      </fieldset>
+      <br>
+
+      <button type="submit">Cadastrar</button>
+      <button type="reset">Limpar</button>
+    </form>
+  </body>
+</html>

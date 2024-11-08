@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: arial;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header,
+footer {
+  width: 100%;
+}
+
+header h1,
+header h3 {
+  color: white;
+  text-align: right;
+  padding: 10px;
+}
+
+header h3,
+footer {
+  background-color: #808080;
+}
+
+nav ul {
+  background-color: #7b7bfa;
+  text-align: center;
+  padding: 10px 2px 10px 2px;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a,
+nav ul li a:visited {
+  text-decoration: none;
+  padding: 40px;
+  color: white;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+main {
+  background-color: white;
+  color: black;
+  width: 1200px;
+  padding: 20px 20px 60px 20px;
+  display: flex;
+  align-items: center;
+  line-height: 1.3em;
+}
+
+main h2 {
+  padding: 15px;
+}
+
+main h2:first-child {
+  transition: all 0.5s;
+  display: inline-block;
+}
+
+main h2:first-child:hover {
+  letter-spacing: 5px;
+}
+
+main p {
+  text-align: justify;
+  padding: 15px;
+  line-height: 1.8em;
+}
+
+main a {
+  color: blue;
+  padding-left: 15px;
+}
+
+.voltarAoTopo {
+  display: inline-block;
+  padding-top: 20px;
+}
+
+main ul {
+  padding: 15px 15px 15px 50px;
+  line-height: 1.6em;
+}
+
+main ul li a {
+  padding: 0px;
+}
+
+main img {
+  width: 400px;
+  margin: 10px auto;
+  display: block;
+}
+
+footer {
+  color: white;
+  padding: 25px 0px 25px 0px;
+  text-align: center;
+}
+
+footer a {
+  color: #add8e6;
+}

@@ -1,0 +1,19 @@
+h1, h2 {
+    color: red;
+    font-family: 'Times New Roman';
+    background-color: yellow;   
+}
+
+.configuracao {
+    color: red;
+    font-family: 'Times New Roman';
+    background-color: yellow;
+}
+
+.caixa {
+    border: 5px dashed blue;
+    padding: 20px;
+    margin: 30px;
+    color: red;
+    text-align: center;
+}   

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xml:th="http://www.timeleaf.org">
+<head>
+    <title>Cadastro de Cliente</title>
+</head>
+<body>
+    <h1>Meus clientes</h1>
+    <a href="/add">Adicionar cliente</a>
+    <ul>
+        <li th:each="cliente : ${clientes}">
+            <span th:text="${cliente.id}">Codigo</span>
+            <span th:text="${cliente.nome}">Nome</span>
+            <span th:text="${cliente.endereco}">Endereco</span>
+        </li>
+    </ul>
+</body>
+</html>

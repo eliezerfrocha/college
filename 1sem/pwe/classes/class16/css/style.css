@@ -1,0 +1,98 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  font-family: Arial;
+}
+
+main section {
+  background-color: #e0dede;
+  width: 1200px;
+  margin: auto;
+  padding: 50px;
+}
+
+main section:nth-of-type(odd) {
+  background-color: 口rgb(238, 238, 238);
+}
+
+main section:nth-of-type(even) {
+  background-color: white;
+}
+
+main section h1 {
+  font-size: 35px;
+}
+
+main section p {
+  margin: 20px 0px;
+  text-align: justify;
+}
+
+.destaque {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+main section button {
+  /* background-color: black; */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+}
+
+main section button:hover {
+  background-color: orangered;
+}
+
+.btnPreto {
+  background-color: black;
+}
+
+.btnAzul {
+  background-color: rgb(2, 2, 200);
+}
+
+main section h2 {
+  margin: 20px 0px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  /* border: 1px solid black; */
+}
+
+.container > div {
+  /* border: 1px solid black;s */
+  width: 100%;
+  padding: 20px;
+}
+
+.servicos div {
+  text-align: center;
+}
+
+.servicos img {
+  width: 90%;
+}
+
+.servicos p {
+  text-align: justify;
+}
+
+.quemSomos div {
+  text-align: center;
+}
+
+footer > p{
+    text-align: center;
+    color: white;
+    padding: 30px;
+    
+}

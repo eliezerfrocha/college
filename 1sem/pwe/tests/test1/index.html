@@ -1,0 +1,214 @@
+<html lang="pt-br" style="scroll-behavior: smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <title>IFTM Cursos</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif; /* Define a fonte padrão como Arial ou uma fonte genérica sans-serif */
+      }
+
+      .container {
+        display: flex;
+        grid-template-columns: auto auto; /* Duas colunas de largura automática */
+        align-items: left; /* Alinha verticalmente no centro */
+      }
+
+      figcaption {
+        margin-left: 10px; /* Espaço entre a imagem e a legenda */
+      }
+    </style>
+  </head>
+  <body>
+    <a href="https://iftm.edu.br/" target="_blank">
+      <img
+        src="./img/logoIFTM.png"
+        alt="Logo colorida da instituição."
+        height="50"
+      />
+    </a>
+
+    <h1 style="color: green">Cursos oferecidos</h1>
+    <h3 style="color: darkred">Conheça os cursos oferecidos pelo IFTM</h3>
+    <hr />
+
+    <p>
+      O <a href="https://iftm.edu.br/" target="_blank">IFTM</a> campus
+      Uberlândia Centro oferece cursos de graduação em Licenciatura e em
+      Tecnologia. Confira abaixo alguns desses cursos:
+    </p>
+    <br />
+
+    <!-- Sem tabela -->
+    <p><b>Sem tabela</b></p>
+    <div class="container">
+      <figure>
+        <img
+          src="./img/licenciatura.jpg"
+          alt="Titulo: Licenciatura em Computação - Imagem: Moça segurando uma caneta e sorrindo para a foto."
+          width="500"
+          height="300"
+        />
+        <figcaption>
+          <a href="#licenciatura">Licenciatura em Computação</a>
+        </figcaption>
+      </figure>
+      <figure>
+        <img
+          src="./img/sistemas.jpg"
+          alt="Sistemas para Internet Titulo: Imagem: Pessoa apontando para um gráfico em uma tela pequena."
+          width="500"
+          height="300"
+        />
+        <figcaption>
+          <a href="#sistemas">Sistemas para Internet</a>
+        </figcaption>
+      </figure>
+    </div>
+    <br />
+
+    <!-- Com tabela -->
+    <p><b>Com tabela</b></p>
+    <table>
+      <tr>
+        <th>
+          <img
+            src="./img/licenciatura.jpg"
+            alt="Titulo: Licenciatura em Computação - Imagem: Moça segurando uma caneta e sorrindo para a foto."
+            width="500"
+            height="300"
+          />
+        </th>
+        <th>
+          <img
+            src="./img/sistemas.jpg"
+            alt="Sistemas para Internet Titulo: Imagem: Pessoa apontando para um gráfico em uma tela pequena."
+            width="500"
+            height="300"
+          />
+        </th>
+      </tr>
+      <tr style="text-align: center">
+        <td>
+          <a href="#licenciatura">Licenciatura em Computação</a>
+        </td>
+        <td>
+          <a href="#sistemas">Sistemas para Internet</a>
+        </td>
+      </tr>
+    </table>
+
+    <h3 id="licenciatura" style="color: darkred">Licenciatura em Computação</h3>
+    <hr />
+
+    <p>
+      No exercício profissional do licenciado em computação estão implícitas: a
+      colaboração com profissionais de diversas áreas, a qualificação e o
+      comprometimento com a gestão do processo de ensino-aprendizagem, a visão
+      da complementaridade do processo educativo, da tecnologia e da ciência da
+      computação, o estímulo à pesquisa, à criação, e ao investimento na própria
+      formação. Tem como objetivo formar professores com uma visão tecnológica
+      em computação, para atuarem na educação básica: ensino fundamental, ensino
+      médio, e ainda na educação profissional técnica de nível médio, na rede de
+      ensino pública e privada.
+    </p>
+
+    <details>
+      <summary style="color: blue">
+        <i>Mais informações sobre o curso</i>
+      </summary>
+      <h3>Perfil do egresso</h3>
+      <p>
+        Entendemos o licenciado em computação, em primeiro lugar, como um
+        profissional ligado ao exercício do diálogo entre as unidades
+        curriculares nos espaços da educação. Como tal, esse profissional
+        agrega-se às equipes de coordenação pedagógica, nas quais atua de
+        início, como um facilitador da introdução de novas tecnologias, não
+        apenas no sentido prático (ou das práticas), mas particularmente no
+        nível da discussão de metodologias e concepções. Nessa qualidade, a sua
+        intervenção no plano das atividades de concepção, planejamento e gestão
+        pedagógicas pode, ou não, ser definida como algo transitório, dependendo
+        da maior ou menor dificuldade de amadurecimento da cultura tecnológica
+        na comunidade em que atua.
+      </p>
+
+      <h3>Corpo docente</h3>
+      <p>Conheça os professores do curso de Licenciatura em Computação:</p>
+
+      <table border="1" widith="100%" cellpadding="5">
+        <tr>
+          <th>Docente</th>
+          <th>Titulação</th>
+          <th>Área de atuação</th>
+          <th>Regime</th>
+        </tr>
+        <tr>
+          <td>Bruno Queiroz Pinto</td>
+          <td>Doutorado</td>
+          <td>Desenvolvimento de sistemas</td>
+          <td>DE</td>
+        </tr>
+        <tr>
+          <td>Wilton de Paula Filho</td>
+          <td>Doutorado</td>
+          <td>Computação 2</td>
+          <td>DE</td>
+        </tr>
+      </table>
+    </details>
+
+    <h3 id="sistemas" style="color: darkred">Sistemas para Internet</h3>
+    <hr />
+
+    <p>
+      O curso de Tecnologia em Sistemas para Internet possui como objetivo geral
+      formar tecnólogos em Sistemas para Internet propiciando conhecimentos
+      teóricos e práticos com vistas à formação integral, por meio do estudo
+      técnico-científico e da reflexão crítica acerca dos aspectos humanos,
+      éticos e cidadãos, de modo a atender com excelência às demandas do arranjo
+      produtivo da região.
+    </p>
+
+    <details>
+      <summary style="color: blue">
+        <i>Mais informações sobre o curso</i>
+      </summary>
+      <h3>Perfil do egresso</h3>
+      <p>
+        O curso de Tecnologia em Sistemas para Internet, por meio de seus
+        componentes curriculares e demais atividades acadêmicas, proporcionará
+        ao egresso uma formação com embasamento técnico nas diversas áreas
+        relacionadas aos sistemas para Internet/Intranet/Web, ao mesmo tempo em
+        que visa à formação integral, oportunizando ensino-aprendizado de
+        aspectos científicos, bem como humanos, éticos e cidadãos.
+      </p>
+
+      <h3>Corpo docente</h3>
+      <p>Conheça os professores do curso de Sistemas para Internet:</p>
+
+      <table border="1" widith="100%" cellpadding="5">
+        <tr>
+          <th>Docente</th>
+          <th>Titulação</th>
+          <th>Área de atuação</th>
+          <th>Regime</th>
+        </tr>
+        <tr>
+          <td>Clarimundo Machado Morais Junior</td>
+          <td>Doutorado</td>
+          <td>Desenvolvimento de sistemas</td>
+          <td>DE</td>
+        </tr>
+        <tr>
+          <td>Wilton de Paula Filho</td>
+          <td>Doutorado</td>
+          <td>Computação 2</td>
+          <td>DE</td>
+        </tr>
+      </table>
+    </details>
+    <br />
+
+    <a href="#">⬆️ Voltar ao topo</a>
+  </body>
+</html>

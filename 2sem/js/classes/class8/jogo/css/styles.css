@@ -1,0 +1,12 @@
+* {
+}
+
+.boxboy {
+  border: 1px solid black;
+  width: 180px;
+  margin: auto;
+  text-align: center;
+
+  /*TODO - alinhar ao centro*/
+  /*TODO - adicionar animações*/
+}
