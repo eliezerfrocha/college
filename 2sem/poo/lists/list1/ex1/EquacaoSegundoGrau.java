@@ -1,4 +1,4 @@
-package ex2;
+package lists.list1.ex1;
 import java.util.Scanner;
 
 public class EquacaoSegundoGrau {

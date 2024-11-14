@@ -1,4 +1,4 @@
-package ex2;
+package lists.list1.ex1;
 
 public class EGrau2 {
     public double a, b, c;

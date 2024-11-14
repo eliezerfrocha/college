@@ -31,7 +31,7 @@ public class App {
         System.out.println("Digite ano:");
         int ano = s.nextInt();
 
-        Formacao f = new Formacao()
+        Formacao f = new Formacao(nome, concluido, instituicao, ano);
         return f;
     }
 
