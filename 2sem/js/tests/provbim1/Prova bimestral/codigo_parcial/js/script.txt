@@ -1,0 +1,30 @@
+var login = document.getElementById("user")
+var senha = document.getElementById("pwe")
+
+var emojis = ['emoji1.jpg','emoji2.jpg','emoji3.jpg','emoji4.jpg','emoji5.jpg',];
+
+function validarForm() {
+    if (login.value == "" || senha.value == "") {
+         alert("Informe usuario e senha");
+    } else if (login.value == "VISITANTE") {
+        window.location.href = './visitante.html';
+    }
+    else {
+        window.location.href = './construcao.html';
+    }
+}
+
+function limpar() {
+    login.value = "";
+    senha.value = "";
+}
+
+function randomEmoji() {
+    console.log(emojis)
+    var randomElement = emojis[Math.floor(Math.random() * emojis.length)]
+    console.log(randomElement);
+}
+
+document.getElementsById("mouse3").addEventListener("mouseout", function () {
+    nomeCompleto.value = `${nome.value} ${sobrenome.value}`;
+});

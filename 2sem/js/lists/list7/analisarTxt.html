@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página 2</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <a href="javascript:history.back()" class="link-voltar">← Voltar</a>
+      <p>1) Texto informado na página anterior:</p>
+      <br />
+      <b><p id="texto-usuario"></p></b>
+      <br />
+
+      <p>
+        2) Você gostaria de analisar a informação disponibilizada pelo usuário
+        na página anterior?
+      </p>
+      <select id="selecao">
+        <option value="nao">Não</option>
+        <option value="sim">Sim</option>
+      </select>
+      <br />
+      <p>
+        OBS: Se você respondeu "não" na pergunta anterior (2), por favor informe
+        um novo texto na caixa abaixo:
+      </p>
+      <textarea id="texto-extra"></textarea>
+      <!-- <label for="selecao">Analisar o novo texto?</label> -->
+      <br />
+      <button id="analisar">Analisar texto</button>
+      <br /><br />
+
+      <p>3) Quantidade de palavras: <span id="qtd-palavras"></span></p>
+      <textarea id="palavras-m"></textarea>
+      <textarea id="primeira-palavra"></textarea>
+      <textarea id="segunda-palavra"></textarea>
+      <textarea id="ultima-palavra"></textarea>
+
+      <button id="papai-noel">Abrir página do Papai Noel</button>
+    </div>
+
+    <script src="assets/js/analisarTxt.js"></script>
+  </body>
+</html>

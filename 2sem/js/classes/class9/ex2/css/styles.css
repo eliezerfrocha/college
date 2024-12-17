@@ -1,0 +1,38 @@
+/* Centraliza a div no centro da página */
+.centered-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Altura da viewport */
+}
+
+/* Define estilo para o formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Espaço entre os campos */
+    width: 100%; /* Ocupa toda a largura da div */
+    max-width: 400px; /* Largura máxima do formulário */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* Estilo dos campos do formulário */
+input[type="text"], input[type="button"], textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Estilo do botão */
+input[type="button"] {
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    background-color: #45a049;
+}

@@ -1,0 +1,52 @@
+/* Estilos Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'San Francisco', 'Roboto', Arial, sans-serif;
+}
+
+body {
+    background-color: #f7f7f7;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: left;
+    background: url('../img/fundo-natal.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.container {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    margin: 20px auto;
+    position: relative;
+}
+
+.link-voltar {
+    text-decoration: none; /* Remove o sublinhado */
+    color: #007aff; /* Cor azul característica Apple */
+    font-size: 15px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.link-voltar:hover {
+    color: #0056b3; /* Um tom mais escuro no hover */
+    text-decoration: underline; /* Adiciona um sublinhado no hover */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+}

@@ -1,0 +1,25 @@
+@import "global.css";
+
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 15px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #dc3545;
+}
+
+#falas img {
+    margin-top: 20px;
+    width: 80px;
+    height: auto;
+}
+
+label {
+    font-size: 15px;
+    font-weight: bold;
+}

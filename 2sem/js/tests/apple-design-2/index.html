@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apple Style Interactive Elements</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="card-container">
+      <div class="card" id="expandableCard">
+        <div class="card-content">
+          <h2>Apple Style</h2>
+          <p>Explore the smooth elegance.</p>
+          <input type="text" id="interactiveField" placeholder="Type here..." />
+        </div>
+      </div>
+    </div>
+    <script>
+      const card = document.getElementById("expandableCard");
+
+      card.addEventListener("mouseenter", () => {
+        card.style.transform = "scale(1.1)";
+        card.style.boxShadow = "0 15px 30px rgba(0, 0, 0, 0.25)";
+      });
+
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "scale(1)";
+        card.style.boxShadow = "0 10px 20px rgba(0, 0, 0, 0.15)";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil do Usuário</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Qual o seu perfil?</h1>
+      <br>
+      
+      <p class="obs">
+        OBS: Todas as informações são de preenchimento obrigatório
+      </p>
+
+      <form id="perfilForm">
+        <div class="form-group">
+          <label for="nome">Nome<b style="color: red">*</b></label>
+          <input type="text" id="nome" placeholder="Digite seu nome" />
+        </div>
+
+        <div class="form-group flex-group">
+          <div class="form-item">
+            <label for="idade">Idade<b style="color: red">*</b></label>
+            <input
+              type="number"
+              id="idade"
+              min="1"
+              max="130"
+              placeholder="Digite sua idade"
+            />
+          </div>
+          <div class="form-item">
+            <label for="passatempo"
+              >Passatempo predileto?<b style="color: red">*</b></label
+            >
+            <select id="passatempo">
+              <option value="">Selecione</option>
+              <option value="shopping">Passear no shopping</option>
+              <option value="natureza">Curtir a natureza</option>
+            </select>
+          </div>
+        </div>
+        <br><br>
+
+        <div class="buttons form-item">
+          <button type="button" id="verOpcoesBtn">Ver opções de carro</button>
+          <button type="reset" id="limparBtn">Limpar</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>

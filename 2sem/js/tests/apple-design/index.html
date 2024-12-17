@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tela de Login</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <h1 class="login-title">Bem-vindo</h1>
+      <form class="login-form">
+        <input type="email" placeholder="E-mail" class="input-field" />
+        <input
+          type="password"
+          placeholder="Senha"
+          class="input-field"        
+        />
+        <!-- <button type="submit" class="login-button">Entrar</button> -->
+        <button type="submit" class="login-button">Cadastrar</button>
+
+      </form>
+    </div>
+    <script>
+      document.querySelector(".login-form").addEventListener("submit", (e) => {
+        e.preventDefault(); // Evita o envio do formulário para fins de teste.
+
+        const inputs = document.querySelectorAll(".input-field");
+        let hasError = false;
+
+        // Verificar campos vazios
+        inputs.forEach((input) => {
+          if (!input.value) {
+            hasError = true;
+            input.classList.add("shake");
+            setTimeout(() => input.classList.remove("shake"), 500); // Remove a classe após a animação
+          }
+        });
+
+        if (!hasError) {
+          alert("Login realizado com sucesso!");
+        }
+      });
+    </script>
+  </body>
+</html>
