@@ -1,0 +1,31 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const cadastrado = localStorage.getItem("cadastrado");
+
+  if (cadastrado == 0) {
+    window.location.href = "usuarioNaoCadastrado.html";
+  } else {
+    localStorage.setItem("cadastrado", 0);
+
+    const nome = localStorage.getItem("nome");
+    const sobrenome = localStorage.getItem("sobrenome");
+    const nomeCompleto = nome + " " + sobrenome;
+
+    const aplicacao = localStorage.getItem("aplicacao");
+    console.log(aplicacao);
+
+    document.getElementById("spanNome").innerHTML = `${nomeCompleto}`;
+
+    const usuarioSpan = document.getElementById("usuario");
+    const senhaSpan = document.getElementById("senha");
+    const saplicacaoSpan = document.getElementById("aplicacao");
+
+    usuarioSpan.innerHTML = nome;
+    senhaSpan.innerHTML = geraSenha(nome, sobrenome);
+    saplicacaoSpan.innerHTML = aplicacao;
+  }
+});
+
+function geraSenha(nome, sobrenome) {
+  var senha = nome.substr(0, 1) + sobrenome.substr(0, 1);
+  return senha;
+}
