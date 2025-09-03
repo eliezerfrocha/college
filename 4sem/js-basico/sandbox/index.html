@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sparkling Loader – UX best‑practice web component</title>
+  <style>
+    :root{
+      color-scheme: light dark;
+    }
+    body{font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji"; margin: 0; padding: 24px; display: grid; gap: 24px; place-items: start;}
+    h1{font-size: clamp(20px, 3vw, 28px); margin: 0 0 8px}
+    .demo{display: grid; gap: 16px;}
+    .row{display:flex; gap:12px; align-items:center; flex-wrap: wrap}
+    button{border:0; padding:10px 14px; border-radius:12px; font-weight:600; cursor:pointer; box-shadow: 0 2px 10px rgba(0,0,0,.07); background: buttonface}
+    .card{border-radius:16px; padding:16px; box-shadow:0 6px 26px rgba(0,0,0,.08), inset 0 1px rgba(255,255,255,.12); background: canvas}
+    .muted{opacity:.75; font-size:.9em}
+    .space{height:2px}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>💧 Sparkling Loader — componente Web acessível e UX‑friendly</h1>
+    <p class="muted">Indeterminado por padrão, adaptativo a redução de movimento/contraste, pausa fora de tela, e com <em>timeline</em> de exibição para evitar flicker. Use como <code>&lt;sparkling-loader&gt;</code> em qualquer stack (HTML, React, Vue, Angular, etc.).</p>
+  </header>
+
+  <div class="card">
+    <div class="demo">
+      <div class="row">
+        <button id="simulate-fast">Request rápida (~300ms)</button>
+        <button id="simulate-medium">Request média (~2.5s)</button>
+        <button id="simulate-slow">Request lenta (~11s)</button>
+        <button id="toggle">Toggle manual</button>
+      </div>
+      <sparkling-loader id="loader" label="Carregando dados" size="lg" variant="bubbles"></sparkling-loader>
+      <div class="muted">Dica: desative/ative animações no sistema para ver o modo de baixo movimento (<code>prefers-reduced-motion</code>). O componente pausa quando está fora de vista.</div>
+    </div>
+  </div>
+
+  <!-- ===== Componente Web: <sparkling-loader> ===== -->
+  <script type="module">
+  const TEMPLATE = document.createElement('template');
+  TEMPLATE.innerHTML = `
+    <style>
+      :host{ --size: 56px; --density: 56; --bg: transparent; --accent: 206 100% 50%; --bubble: 206 100% 98%; --glow: 206 80% 72%; --radius: 14px; --elev: 0 8px 28px rgba(0,0,0,.08); --border: 0 1px 0 rgba(255,255,255,.18); --gap: 8px; --padding: 12px; --min-show: 600ms; --delay-before-show: 180ms; --stall-threshold: 10000; display:inline-grid; place-items:center; gap: var(--gap); padding: var(--padding); border-radius: var(--radius); background: var(--bg); box-shadow: var(--elev), inset var(--border);}
+      :host([hidden]){ display:none !important }
+
+      /* container visual */
+      .vis{ position: relative; width: var(--size); height: var(--size); display:grid; place-items:center; }
+
+      /* modo reduzido: pulso sutil */
+      @media (prefers-reduced-motion: reduce){
+        .pulse{ width: calc(var(--size) * .42); height: calc(var(--size) * .42); border-radius: 999px; background: hsl(var(--accent) / .25); animation: pulse 1.2s ease-in-out infinite }
+        @keyframes pulse{0%{ transform: scale(.92); opacity:.8 }50%{ transform: scale(1.04); opacity:1 }100%{ transform: scale(.92); opacity:.8 }}
+      }
+
+      /* shimmer skeleton (soft pending) */
+      .skeleton{ width: clamp(120px, 24vw, 260px); height: 12px; border-radius: 999px; overflow:hidden; background: color-mix(in oklab, canvas 88%, black 8%);}
+      .skeleton::before{ content:""; display:block; height:100%; width: 45%; translate:-60%; animation: shimmer 1100ms linear infinite; background: linear-gradient(90deg, transparent, color-mix(in oklab, canvas 80%, white 25%), transparent)}
+      @keyframes shimmer{ 100% { translate: 160% }}
+
+      /* Bubbles (indeterminate hard pending) */
+      .tank{ position:relative; width:100%; height:100%; border-radius: 18px; overflow:hidden; isolation:isolate; background: radial-gradient(120% 80% at 50% 0%, color-mix(in oklab, canvas 0%, black 18%) 0%, color-mix(in oklab, canvas 0%, black 32%) 70%); box-shadow: inset 0 1px rgba(255,255,255,.08); }
+      .grain{ content:""; position:absolute; inset:0; pointer-events:none; mix-blend-mode: screen; background:
+        radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,.06) 0 99%, transparent 100%),
+        radial-gradient(1px 1px at 70% 60%, rgba(255,255,255,.05) 0 99%, transparent 100%),
+        linear-gradient(to bottom, rgba(255,255,255,.06), rgba(255,255,255,0))
+      }
+      .wrap{ position:absolute; bottom:-12%; left:0; animation: sway var(--sway-dur) ease-in-out var(--sway-delay) infinite; will-change: transform }
+      .bubble{ position:absolute; bottom:0; left:0; width: var(--sz); height: var(--sz); border-radius: 999px; animation: rise var(--dur) linear var(--delay) infinite; will-change: transform, opacity, filter; opacity: var(--alpha, .9); filter: blur(var(--blur, 0px)); background:
+        radial-gradient(circle at 30% 30%, hsl(0 0% 100% / .95) 0 35%, hsl(0 0% 100% / .25) 50%, transparent 70%),
+        radial-gradient(circle at 70% 70%, hsl(var(--bubble) / .35), hsl(var(--bubble) / .05) 60%, transparent 70%);
+        box-shadow: 0 0 calc(var(--sz) * .6) hsl(var(--glow) / .25), inset 0 0 0.5px rgba(255,255,255,.5);
+      }
+      .bubble::after{ content:""; position:absolute; inset:0; border-radius:inherit; background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.9) 0 12%, transparent 15% 100%); mix-blend-mode: screen; opacity:.8 }
+      @keyframes rise{ 0%{ transform: translateY(6%) scale(var(--scale, 1)); opacity: var(--alpha, .9) } 90%{ opacity: var(--alpha, .9) } 100%{ transform: translateY(-108%) scale(calc(var(--scale,1) * .9)); opacity: 0 } }
+      @keyframes sway{ 0%{ transform: translateX(-10%) } 50%{ transform: translateX(10%) } 100%{ transform: translateX(-10%) } }
+
+      /* text area */
+      .txt{ font: inherit; font-weight: 600; text-align:center; }
+      .sub{ font: inherit; font-size: .9em; opacity: .7; text-align:center; }
+
+      /* size variants */
+      :host([size="sm"]){ --size: 36px; --density: 34; --radius: 10px; --padding: 10px }
+      :host([size="md"]){ --size: 48px; --density: 48 }
+      :host([size="lg"]){ --size: 72px; --density: 64; --radius: 16px; --padding: 14px }
+
+      /* color scheme adjustments */
+      @media (prefers-color-scheme: light){
+        :host{ --bg: color-mix(in oklab, white 86%, hsl(var(--accent)) 2%); --bubble: 208 80% 45%; --glow: 208 70% 68% }
+        .tank{ background: radial-gradient(120% 80% at 50% 0%, color-mix(in oklab, white 100%, hsl(var(--accent)) 6%) 0%, color-mix(in oklab, white 100%, black 8%) 70%) }
+      }
+
+      /* high contrast preference: simplify visuals */
+      @media (prefers-contrast: more){ .grain{ display:none } .tank{ box-shadow: inset 0 0 0 2px color-mix(in oklab, canvas 0%, hsl(var(--accent)) 55%) } }
+
+      /* paused state (offscreen) */
+      :host([data-paused="true"]) .wrap, :host([data-paused="true"]) .bubble, :host([data-paused="true"]) .pulse{ animation-play-state: paused }
+
+      /* visually hidden helper */
+      .sr-only{ position:absolute!important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0 }
+    </style>
+    <div class="vis" part="visual" aria-hidden="true"></div>
+    <div class="txt" part="label"><slot name="label"></slot></div>
+    <div class="sub" part="sublabel" hidden></div>
+    <span class="sr-only" part="sr">Carregando…</span>
+  `;
+
+  class SparklingLoader extends HTMLElement{
+    static get observedAttributes(){ return ['active','label','size','variant'] }
+    #state = { active:false, variant:'bubbles', delayBeforeShow: 180, minShow: 600, stallThreshold: 10000, timers: [], startedAt: 0, visibleAt: 0, intersection: null };
+
+    constructor(){
+      super();
+      const root = this.attachShadow({mode:'open'});
+      root.appendChild(TEMPLATE.content.cloneNode(true));
+      this.$ = {
+        vis: root.querySelector('.vis'),
+        sub: root.querySelector('.sub'),
+        sr: root.querySelector('.sr-only'),
+        label: root.querySelector('.txt')
+      };
+      this.setAttribute('role','progressbar');
+      this.setAttribute('aria-valuemin','0');
+      this.setAttribute('aria-valuemax','100');
+      this.setAttribute('aria-busy','false');
+      // default size
+      if(!this.hasAttribute('size')) this.setAttribute('size','md');
+      // intersection observer to pause offscreen
+      this.#state.intersection = new IntersectionObserver(entries => {
+        for(const e of entries){ this.toggleAttribute('data-paused', !e.isIntersecting); }
+      }, { threshold: .01 });
+    }
+
+    connectedCallback(){ this.#state.intersection.observe(this); this.#renderLabel(); this.#render() }
+    disconnectedCallback(){ this.#cleanup(); this.#state.intersection?.disconnect() }
+    attributeChangedCallback(){ this.#renderLabel(); this.#render() }
+
+    // Public API -----------------------------------------------------------
+    /** Liga/desliga manualmente */
+    set active(v){ v ? this.setAttribute('active','') : this.removeAttribute('active') }
+    get active(){ return this.hasAttribute('active') }
+
+    /** Texto visível e também usado como aria-valuetext */
+    set label(v){ this.setAttribute('label', v) }
+    get label(){ return this.getAttribute('label') ?? '' }
+
+    /** Controla o fluxo UX: atraso para exibir, mínimo de exibição e ponto de estagnação */
+    configure({ delayBeforeShow, minShow, stallThreshold }={}){
+      if(Number.isFinite(delayBeforeShow)) this.#state.delayBeforeShow = delayBeforeShow;
+      if(Number.isFinite(minShow)) this.#state.minShow = minShow;
+      if(Number.isFinite(stallThreshold)) this.#state.stallThreshold = stallThreshold;
+    }
+
+    /** Inicia e encerra atrelado a uma Promise */
+    async track(promise){
+      this.start();
+      try{ const r = await promise; this.stop(); return r }
+      catch(err){ this.stop({ error:true }); throw err }
+    }
+
+    /** Força início */
+    start(){ if(this.active) return; this.setAttribute('aria-busy','true'); this.#state.startedAt = performance.now(); this.#timelineStart(); }
+
+    /** Força parada */
+    stop({ error=false }={}){
+      const now = performance.now();
+      const timeVisible = this.#state.visibleAt ? now - this.#state.visibleAt : 0;
+      const wait = Math.max(0, this.#state.minShow - timeVisible);
+      // limpar mensagens de estagnação
+      this.#clearTimers();
+      this.#state.timers.push(setTimeout(() => {
+        this.removeAttribute('active');
+        this.setAttribute('aria-busy','false');
+        this.setAttribute('aria-valuenow','100');
+        this.$.sub.hidden = true; this.$.sub.textContent = '';
+        this.#state.visibleAt = 0;
+        this.dispatchEvent(new CustomEvent('loader:stop', { detail:{ error } }));
+      }, wait));
+    }
+
+    // UX timeline ---------------------------------------------------------
+    #timelineStart(){
+      this.#clearTimers();
+      // Etapa 0: Under-200ms – não mostrar nada para evitar flicker
+      this.#state.timers.push(setTimeout(() => {
+        // Etapa 1: exibe skeleton leve
+        this.setAttribute('active','');
+        this.#state.visibleAt = performance.now();
+        this.#renderVisual({ stage:'soft' });
+        this.setAttribute('aria-valuetext', this.label || 'Carregando…');
+        this.dispatchEvent(new CustomEvent('loader:start'));
+      }, this.#state.delayBeforeShow));
+
+      // Etapa 2: se continuar, troca para indeterminado animado (bolhas)
+      this.#state.timers.push(setTimeout(() => {
+        if(!this.active) return; // pode ter parado
+        this.#renderVisual({ stage:'hard' });
+      }, this.#state.delayBeforeShow + 800));
+
+      // Etapa 3: estagnado (comunicação transparente + possível ação)
+      this.#state.timers.push(setTimeout(() => {
+        if(!this.active) return;
+        this.$.sub.hidden = false;
+        this.$.sub.textContent = 'Demorando mais que o esperado…';
+        this.dispatchEvent(new CustomEvent('loader:stall'));
+      }, Math.max(this.#state.stallThreshold, this.#state.delayBeforeShow + 1600)));
+    }
+
+    #clearTimers(){ this.#state.timers.forEach(t => clearTimeout(t)); this.#state.timers.length = 0 }
+
+    #cleanup(){
+      // remove bolhas atuais
+      const vis = this.$.vis; if(!vis) return;
+      vis.querySelectorAll('.wrap').forEach(w => w.remove());
+      vis.textContent = '';
+    }
+
+    // Render --------------------------------------------------------------
+    #render(){
+      this.toggleAttribute('aria-hidden', !this.active);
+      this.style.visibility = this.active ? 'visible' : 'hidden';
+      if(!this.active){ this.#cleanup(); return; }
+    }
+
+    #renderLabel(){
+      const text = this.getAttribute('label');
+      this.$.label.textContent = text || '';
+      this.$.sr.textContent = text || 'Carregando…';
+      this.setAttribute('aria-valuetext', text || 'Carregando…');
+    }
+
+    #renderVisual({ stage }){
+      const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const variant = this.getAttribute('variant') || 'bubbles';
+
+      this.#cleanup();
+
+      if(stage === 'soft'){
+        // skeleton shimmer
+        const sk = document.createElement('div');
+        sk.className = 'skeleton';
+        this.$.vis.appendChild(sk);
+        if(prefersReduced){ // já mostra também o pulso para acessibilidade
+          const pulse = document.createElement('div');
+          pulse.className = 'pulse';
+          this.$.vis.appendChild(pulse);
+        }
+        return;
+      }
+
+      if(prefersReduced){
+        const pulse = document.createElement('div');
+        pulse.className = 'pulse';
+        this.$.vis.appendChild(pulse);
+        return;
+      }
+
+      if(variant === 'spinner'){
+        const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+        svg.setAttribute('viewBox','0 0 50 50');
+        svg.setAttribute('width','100%'); svg.setAttribute('height','100%');
+        svg.innerHTML = `<g fill="none" stroke="hsl(${getComputedStyle(this).getPropertyValue('--accent')})">
+          <circle cx="25" cy="25" r="20" stroke-width="6" opacity=".18"/>
+          <path d="M45 25a20 20 0 0 1-20 20" stroke-width="6">
+            <animateTransform attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.9s" repeatCount="indefinite"/>
+          </path>
+        </g>`;
+        this.$.vis.appendChild(svg);
+        return;
+      }
+
+      // default: bubbles
+      const tank = document.createElement('div'); tank.className = 'tank';
+      const grain = document.createElement('div'); grain.className = 'grain';
+      tank.appendChild(grain);
+      this.$.vis.appendChild(tank);
+
+      const BUBBLES = parseInt(getComputedStyle(this).getPropertyValue('--density')) || 56;
+      const NEW_EVERY = 90;
+
+      const make = () => {
+        const wrap = document.createElement('span');
+        wrap.className = 'wrap';
+        const b = document.createElement('span');
+        b.className = 'bubble';
+
+        const size = rnd(3, 10);
+        const left = rnd(0, 100);
+        const dur = rnd(3200, 9000);
+        const delay = rnd(-4000, 0);
+        const alpha = rnd(0.55, 1);
+        const blur = Math.random() > 0.8 ? rnd(0.5, 1.8) : 0;
+        const swayDur = rnd(1800, 4200);
+        const swayDelay = rnd(0, 1200);
+        const scale = rnd(0.9, 1.25);
+
+        wrap.style.left = left + '%';
+        wrap.style.setProperty('--sway-dur', swayDur + 'ms');
+        wrap.style.setProperty('--sway-delay', swayDelay + 'ms');
+        b.style.setProperty('--sz', size + 'px');
+        b.style.setProperty('--dur', dur + 'ms');
+        b.style.setProperty('--delay', delay + 'ms');
+        b.style.setProperty('--alpha', alpha);
+        b.style.setProperty('--blur', blur + 'px');
+        b.style.setProperty('--scale', scale);
+
+        const removeAfter = Math.max(dur + Math.abs(delay), 1000) + 200;
+        const t = setTimeout(() => wrap.remove(), removeAfter);
+        wrap._t = t;
+
+        wrap.appendChild(b);
+        tank.appendChild(wrap);
+      };
+
+      // prefill
+      for(let i=0;i<BUBBLES;i++) make();
+      const interval = setInterval(() => {
+        if(!this.isConnected) return clearInterval(interval);
+        if(this.getAttribute('data-paused') === 'true') return; // não gerar offscreen
+        const cur = tank.querySelectorAll('.bubble').length;
+        if(cur < BUBBLES){ const n = Math.round(rnd(1,3)); for(let i=0;i<n;i++) make(); }
+      }, NEW_EVERY);
+
+      this.#state.timers.push(interval);
+
+      function rnd(min,max){ return Math.random() * (max - min) + min }
+    }
+  }
+
+  customElements.define('sparkling-loader', SparklingLoader);
+  
+  // ===== Demo wiring =====
+  const loader = document.querySelector('#loader');
+  loader.configure({ delayBeforeShow: 180, minShow: 600, stallThreshold: 10000 });
+
+  document.querySelector('#toggle').addEventListener('click', () => loader.active = !loader.active);
+
+  function mock(ms){ return new Promise(res => setTimeout(res, ms)) }
+
+  document.querySelector('#simulate-fast').addEventListener('click', async () => {
+    await loader.track(mock(300));
+  });
+  document.querySelector('#simulate-medium').addEventListener('click', async () => {
+    await loader.track(mock(2500));
+  });
+  document.querySelector('#simulate-slow').addEventListener('click', async () => {
+    await loader.track(mock(11000));
+  });
+  </script>
+
+  <!-- ===== Como usar no seu app =====
+    1) Importe este módulo no <head> como <script type="module"> ou bundle no seu build.
+    2) Coloque <sparkling-loader id="L" label="Carregando" size="md" variant="bubbles"></sparkling-loader>
+    3) Para requests: await L.track(fetch(...))  // ele inicia, gerencia a timeline e para sozinho.
+       Ou: L.start(); try { ... } finally { L.stop(); }
+    4) Atributos: [active], label, size (sm|md|lg), variant (bubbles|spinner).
+       CSS Vars p/ tema: --accent (H S L), --size, --density, --radius, --min-show, --delay-before-show, --stall-threshold.
+    5) Eventos: 'loader:start', 'loader:stall', 'loader:stop'.
+    6) Acessibilidade: role=progressbar, aria-busy, aria-valuetext deriva de [label]; respeita prefers-reduced-motion/contrast.
+    7) Performance: pausa offscreen (IntersectionObserver) e evita gerar novas bolhas quando pausado.
+  ===== -->
+</body>
+</html>
