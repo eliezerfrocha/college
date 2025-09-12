@@ -1,0 +1,13 @@
+{
+  "name": "js-basico-sandbox",
+  "version": "1.0.0",
+  "description": "A sandbox for testing small JavaScript code snippets and utilities.",
+  "main": "scripts/example.js",
+  "scripts": {
+    "test": "node scripts/example.js"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "author": "Eliezer Ferreira Rocha",
+  "license": "MIT"
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Ex11 – Truco (4 jogadores)</title>
+  </head>
+  <body>
+    <h2>Ex11 – Truco (4 jogadores)</h2>
+    <p class="muted">Sorteia 12 cartas (3 para cada jogador).</p>
+    <div class="grid">
+      <div class="row">
+        <button onclick="sortearTruco()">Sortear novamente</button>
+      </div>
+      <div
+        class="grid"
+        style="
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 16px;
+        "
+      >
+        <div>
+          <h3>Jogador 1</h3>
+          <div id="j1" class="row"></div>
+        </div>
+        <div>
+          <h3>Jogador 2</h3>
+          <div id="j2" class="row"></div>
+        </div>
+        <div>
+          <h3>Jogador 3</h3>
+          <div id="j3" class="row"></div>
+        </div>
+        <div>
+          <h3>Jogador 4</h3>
+          <div id="j4" class="row"></div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

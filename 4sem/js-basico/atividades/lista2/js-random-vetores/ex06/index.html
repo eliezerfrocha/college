@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../style.css" />
+    <title>Ex06 – Mega-Sena</title>
+
+    <style>
+      #numeros {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 12px;
+      }
+
+      .bolinha {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 18px;
+        color: #fff;
+        background: linear-gradient(135deg, #4a90e2, #357abd);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s ease, background 0.3s ease;
+      }
+
+      .bolinha:hover {
+        transform: scale(1.1);
+        background: linear-gradient(135deg, #5aa5ff, #2f6eb6);
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Ex06 – Sugestão de 6 números da Mega-Sena</h2>
+    <div class="card">
+      <br>
+      <div id="numeros" class="row"></div>
+      <br>
+      <div class="row" style="margin-top: 12px">
+        <button onclick="gerarMega()">Gerar novamente</button>
+      </div>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

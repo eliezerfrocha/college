@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../style.css" />
+    <title>Ex05 – Média e Sorteio</title>
+  </head>
+  <body>
+    <h2>Ex05 – Idade média e sorteio do almoço</h2>
+    <div class="grid">
+      <div class="card">
+        <p>
+          Informe uma pessoa por linha no formato <code>Nome,Idade</code> (ex.:
+          <em>Ana,22</em>):
+        </p>
+        <textarea id="lista" rows="8" style="width: 40%">
+          Ana,22
+          Bruno,19
+          Carla,41
+          Diego,33
+          Erika,28
+        </textarea>
+        <div class="row"><button onclick="calcular()">Calcular</button></div>
+      </div>
+      <div id="saida"></div>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
