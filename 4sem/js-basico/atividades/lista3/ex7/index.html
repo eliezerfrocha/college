@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ex07 – Acesso ao sistema</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="quadro">
+      <h1 class="titulo">Acesso ao Sistema</h1>
+
+      <table class="tabela" role="presentation">
+        <tr>
+          <td><label for="login">Login</label></td>
+          <td><input id="login" type="text" /></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><label for="senha">Senha</label></td>
+          <td><input id="senha" type="password" maxlength="8" /></td>
+          <td><span class="hint">(max. 8 caracteres)</span></td>
+        </tr>
+        <tr>
+          <td><label for="confirmar">Confirmar Senha</label></td>
+          <td><input id="confirmar" type="password" maxlength="8" /></td>
+          <td><span class="hint">(max. 8 caracteres)</span></td>
+        </tr>
+        <tr>
+          <td colspan="3" class="botoes">
+            <button id="entrar">Entrar</button>
+            <button id="limpar" type="button">Limpar</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>

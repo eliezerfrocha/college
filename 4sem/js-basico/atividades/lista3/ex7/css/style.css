@@ -1,0 +1,68 @@
+body {
+  font-family: Verdana, Arial, sans-serif;
+  background: #fff;
+  margin: 20px;
+}
+
+.quadro {
+  border: 2px solid #000;
+  padding: 16px 20px 20px;
+  width: 600px;
+  /* margin: 0 auto; */
+}
+
+.titulo {
+  font-size: 24px;            
+  color: blue;              
+  text-align: center;         
+  font-family: Verdana, Arial, sans-serif; 
+  margin: 8px 0 16px;
+}
+
+
+.tabela {
+  margin: 0 auto;
+  /* border-collapse: separate;   */
+  border-spacing: 8px 12px;   
+}
+
+.tabela td:first-child {
+  text-align: right;
+  padding-right: 6px;
+  white-space: nowrap;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 320px;
+  height: 24px;
+  padding: 2px 4px;
+  border: 1px solid #999;
+  background: #fff;
+}
+
+.hint {
+  color: red;                                  
+  font-family: Verdana, Arial, sans-serif;     
+  font-size: 10px;                             
+  margin-left: 6px;
+  white-space: nowrap;
+}
+
+.botoes {
+  text-align: center;
+  padding-top: 6px;
+}
+
+button {
+  min-width: 90px;
+  padding: 6px 10px;
+  margin: 0 6px;
+  border: 1px solid #888;
+  background: #e0e0e0;
+  color: #000;
+  cursor: pointer;
+}
+
+button:hover { background: #d7d7d7; }
+button:active { background: #cfcfcf; }

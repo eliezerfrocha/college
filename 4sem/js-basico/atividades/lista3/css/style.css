@@ -1,0 +1,57 @@
+body {
+  font-family: system-ui, Arial, sans-serif;
+  padding: 24px;
+}
+
+.card {
+  max-width: 420px;
+  /* margin: 0 auto; */
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+}
+
+label {
+  font-weight: 600;
+  min-width: 60px;
+  margin-right: 6px;
+  display: flex;
+  align-items: center;
+  color: #333;
+  font-size: 14px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 8px;
+}
+
+button {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+  /* margin: 0 auto; */
+}
+td {
+  padding: 8px;
+}
+
+.grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.ops {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
