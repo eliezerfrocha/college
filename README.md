@@ -18,4 +18,3 @@ Notas:
 - `node_modules`, builds, `.venv`, pastas nativas (`ios/`, `android/`) e credenciais **não** são versionados.
   Em projetos Expo/React Native rode `npm install` (e `npx expo prebuild` se precisar das pastas nativas).
 - Arquivos `*.alt-faculdade` são versões alternativas de um mesmo arquivo encontradas ao unificar duas cópias do material.
-- `_a-classificar/` guarda o que ainda não foi associado a uma disciplina.
