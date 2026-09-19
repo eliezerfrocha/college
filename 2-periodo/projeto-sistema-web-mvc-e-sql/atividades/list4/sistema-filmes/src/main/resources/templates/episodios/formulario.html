@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulário de Episódio</title>
+</head>
+<body>
+    <a th:href="@{/filmes}">Voltar</a>
+<h1 th:text="${#strings.isEmpty(episodio.id) ? 'Novo Episódio' : 'Editar Episódio'}"></h1>
+<form th:action="@{/episodios/salvar}" th:object="${episodio}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <input type="hidden" th:field="*{serie.id}" />
+    <label for="titulo">Título:</label>
+    <input type="text" id="titulo" th:field="*{titulo}" /><br/>
+    <label for="duracao">Duração (min):</label>
+    <input type="number" id="duracao" th:field="*{duracao}" /><br/>
+    <button type="submit">Salvar</button>
+</form>
+<!-- <a th:href="@{/series/{id}/episodios(id=${episodio.serie.id})}">Voltar</a> -->
+</body>
+</html>

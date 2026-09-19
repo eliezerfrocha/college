@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: pedido-service
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/pedido}
+
+server:
+  port: 8083
+
+# Enderecos dos outros microsservicos consumidos pelo pedido-service.
+# Usados ao configurar RestClient/OpenFeign (conteudo 3.1 a 3.3 da ementa).
+services:
+  catalogo-service:
+    url: ${CATALOGO_SERVICE_URL:http://localhost:8081}
+  cliente-service:
+    url: ${CLIENTE_SERVICE_URL:http://localhost:8082}

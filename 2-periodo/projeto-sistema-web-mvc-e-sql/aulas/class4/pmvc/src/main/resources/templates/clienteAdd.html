@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xml:th="http://www.timeleaf.org">
+<head>
+    <title>Cadastro de Cliente</title>
+</head>
+<body>
+    <h1>Adicionar cliente</h1>
+    <form action="/add" method="post" th:object="${cliente}">
+        <label for="">Id</label>
+        <input type="text" th:field="*{id}" required>
+        <label for="">Nome</label>
+        <input type="text" th:field="*{nome}" required>
+        <label for="">Endereço</label>
+        <input type="text" th:field="*{endereco}" required>
+        <button type="submit">Adicionar cliente</button>
+    </form>
+    <a href="/clientes">Voltar</a>
+</body>
+</html>

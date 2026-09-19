@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Memória</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>body{margin:0}</style>
+</head>
+<body>
+    <main class="container">
+        <h1>Jogo da Memória</h1>
+
+        <div class="controls">
+            <label for="dificuldade">Nível:</label>
+            <select id="dificuldade">
+                <option value="4">Fácil (4 pares)</option>
+                <option value="8">Médio (8 pares)</option>
+                <option value="12">Difícil (12 pares)</option>
+            </select>
+
+            <button id="btnIniciar">Iniciar</button>
+
+            <div class="status">
+                <div>Tempo: <span id="timer">00:00</span></div>
+                <div>Tentativas: <span id="tentativas">0</span></div>
+                <div>Acertos: <span id="acertos">0</span></div>
+                <div>Aproveitamento: <span id="aproveitamento">0%</span></div>
+            </div>
+        </div>
+
+        <div id="mensagem" class="mensagem" aria-live="polite"></div>
+
+        <section id="tabuleiro" class="tabuleiro"></section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

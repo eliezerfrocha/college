@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Sistema de Gerenciamento</title>
+    <!-- Materialize CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      /* Centralização total */
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f5f5f5; /* Cor de fundo leve */
+      }
+
+      .card {
+        width: 100%;
+        max-width: 700px; /* Aumenta a largura máxima do card */
+        min-height: 500px; /* Define uma altura mínima maior */
+        padding: 20px; /* Adiciona espaçamento interno */
+      }
+
+      .btn {
+        margin: 10px 0; /* Espaçamento entre botões */
+      }
+
+      .card-title {
+        font-size: 2rem; /* Título maior e mais destacado */
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Card centralizado -->
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title center-align">
+          Bem-vindo ao Sistema de Gerenciamento
+        </span>
+
+        <h5 class="center-align">Balanço Geral</h5>
+        <ul class="collection">
+          <li class="collection-item">
+            <strong>Total de Filmes:</strong>
+            <span class="right" th:text="${totalFilmes}">0</span>
+          </li>
+          <li class="collection-item">
+            <strong>Total de Séries:</strong>
+            <span class="right" th:text="${totalSeries}">0</span>
+          </li>
+          <li class="collection-item">
+            <strong>Total de Músicas:</strong>
+            <span class="right" th:text="${totalMusicas}">0</span>
+          </li>
+        </ul>
+
+        <br>
+        <br>
+        
+        <h5 class="center-align">Navegação</h5>
+        <p class="center-align">Escolha uma das opções abaixo:</p>
+        <div class="center-align">
+          <a
+            class="waves-effect waves-light btn blue"
+            th:href="@{/filmes}"
+          >
+            Gerenciar Filmes
+          </a>
+          <a
+            class="waves-effect waves-light btn green"
+            th:href="@{/series}"
+          >
+            Gerenciar Séries
+          </a>
+          <a
+            class="waves-effect waves-light btn orange"
+            th:href="@{/musicas}"
+          >
+            Gerenciar Músicas
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Materialize JS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
+    ></script>
+  </body>
+</html>

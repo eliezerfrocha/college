@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: catalogo-service
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/catalogo}
+
+server:
+  port: 8081

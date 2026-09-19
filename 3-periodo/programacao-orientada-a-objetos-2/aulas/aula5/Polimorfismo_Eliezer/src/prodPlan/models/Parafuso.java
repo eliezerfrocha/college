@@ -1,0 +1,35 @@
+package prodPlan.models;
+
+public class Parafuso extends Parte {
+    private float comprimento;
+    private float diametro;
+
+    public Parafuso(int cod, String nome, String descricao, float valor, float comprimento, float diametro) {
+        super(cod, nome, descricao, valor);
+        this.comprimento = comprimento;
+        this.diametro = diametro;
+    }
+
+    @Override
+    public float calculaValor() {
+        return valor;
+    }
+    
+    @Override
+    public String toString() {
+        return "codigo:" + cod +
+        " nome:" + nome +
+        " descricao:" + descricao +
+        " valor:" + valor +
+        " comprimento:" + comprimento +
+        " diametro:" + diametro;
+    }
+    
+    
+    // public float getComprimento() {
+    //     return comprimento;
+    // }
+    // public float getDiametro() {
+    //     return diametro;
+    // }
+}

@@ -177,3 +177,33 @@ sftp-config.json
 .settings/
 .vscode/
 
+
+# --- organizacao por periodo ---
+.DS_Store
+.git-aninhado/
+node_modules/
+.venv/
+venv/
+target/
+build/
+.gradle/
+.expo/
+Pods/
+*.class
+.idea/
+.vscode/
+# segredos / chaves
+.env
+.env.*
+google-services.json
+GoogleService-Info.plist
+*.keystore
+*.jks
+*.p12
+*.pem
+# apps Expo/React Native: pastas nativas geradas (rode `npx expo prebuild`)
+**/aula-auth/ios/
+**/aula-auth/android/
+# credenciais encontradas (mantidas so localmente)
+**/cart/src/services/firebase.js
+**/atividade_integracao_mongo/src/main/resources/application.properties

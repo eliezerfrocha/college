@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <a th:href="@{/}">Voltar à Página Inicial</a>
+    <title>Lista de Episódios</title>
+</head>
+<body>
+<h1>Episódios de "<span th:text="${serie.titulo}"></span>"</h1>
+<a th:href="@{/episodios/nova/{serieId}(serieId=${serie.id})}">Adicionar Novo Episódio</a>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Duração (min)</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="episodio : ${episodios}">
+            <td th:text="${episodio.id}"></td>
+            <td th:text="${episodio.titulo}"></td>
+            <td th:text="${episodio.duracao}"></td>
+            <td>
+                <a th:href="@{/episodios/editar/{id}(id=${episodio.id})}">Editar</a>
+                <a th:href="@{/episodios/excluir/{id}(id=${episodio.id})}">Excluir</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<a th:href="@{/series}">Voltar</a>
+</body>
+</html>
