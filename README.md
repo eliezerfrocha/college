@@ -3,7 +3,7 @@
 Material do curso organizado por **período → disciplina → categoria**.
 
 ```
-N-periodo/<disciplina>/{aulas, atividades, provas, projetos, rascunhos, material}
+N-periodo/<disciplina>/{aulas, atividades, projetos, provas}
 ```
 
 | Período | Disciplinas |
