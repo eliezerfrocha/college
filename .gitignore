@@ -4,7 +4,7 @@
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
 
 # Thumbnails
 ._*
@@ -207,3 +207,31 @@ GoogleService-Info.plist
 # credenciais encontradas (mantidas so localmente)
 **/cart/src/services/firebase.js
 **/atividade_integracao_mongo/src/main/resources/application.properties
+
+# --- disciplinas migradas para repositorios proprios (privados) ---
+# cada pasta abaixo tem seu proprio .git; ver README.md para os links
+1-periodo/empreendedorismo/
+1-periodo/fundamentos-de-sistemas-para-internet/
+1-periodo/logica-de-programacao/
+1-periodo/projeto-website-estatico/
+1-periodo/requisitos/
+1-periodo/sistemas-operacionais/
+2-periodo/algoritmos-e-programacao/
+2-periodo/fundamentos-de-banco-de-dados/
+2-periodo/javascript-basico/
+2-periodo/programacao-orientada-a-objetos-1/
+2-periodo/projeto-sistema-web-mvc-e-sql/
+3-periodo/banco-de-dados-avancado/
+3-periodo/programacao-orientada-a-objetos-2/
+3-periodo/projeto-back-end-monolitico-com-orm/
+3-periodo/projeto-front-end-web/
+3-periodo/testes-automatizados/
+4-periodo/banco-de-dados-nosql/
+4-periodo/interface-humano-computador/
+4-periodo/projeto-aplicacao-para-dispositivos-moveis/
+4-periodo/projeto-back-end-microsservicos-e-nosql/
+4-periodo/sistemas-distribuidos/
+5-periodo/inteligencia-computacional/
+5-periodo/producao-de-relatorio-artigo-e-monografia/
+5-periodo/seguranca-em-sistemas-para-internet/
+5-periodo/topicos-especiais-1/
